@@ -11,6 +11,12 @@ services:
       - "5432:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
+    networks:
+      - postgres
 
 volumes:
-  postgres-data:
+  postgres-data: 
+
+networks:
+  postgres:
+    external: true

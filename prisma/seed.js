@@ -6,7 +6,8 @@ async function main() {
     {
       name: "Spaghetti Carbonara",
       image: "http://example.com/carbonara.jpg",
-      description: "A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
+      description:
+        "A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
       category: "Pasta",
       origin: "Italy",
       cookTimer: "30 minutes",
@@ -19,18 +20,25 @@ async function main() {
         { ingredientName: "Salt", ingredientPortion: "to taste" },
       ],
       instructions: [
-        { instruction: "Cook the spaghetti according to the package instructions." },
+        {
+          instruction:
+            "Cook the spaghetti according to the package instructions.",
+        },
         { instruction: "Fry the pancetta until crispy." },
         { instruction: "Beat the eggs and mix with grated Parmesan cheese." },
         { instruction: "Drain the spaghetti and combine with the pancetta." },
-        { instruction: "Remove from heat and quickly mix in the egg and cheese mixture." },
+        {
+          instruction:
+            "Remove from heat and quickly mix in the egg and cheese mixture.",
+        },
         { instruction: "Season with salt and black pepper to taste." },
       ],
     },
     {
       name: "Chicken Curry",
       image: "http://example.com/chickencurry.jpg",
-      description: "A flavorful and spicy chicken curry with a blend of aromatic spices.",
+      description:
+        "A flavorful and spicy chicken curry with a blend of aromatic spices.",
       category: "Curry",
       origin: "India",
       cookTimer: "45 minutes",
@@ -46,13 +54,22 @@ async function main() {
         { ingredientName: "Cilantro", ingredientPortion: "for garnish" },
       ],
       instructions: [
-        { instruction: "Heat oil in a large pot and sauté onions until golden brown." },
+        {
+          instruction:
+            "Heat oil in a large pot and sauté onions until golden brown.",
+        },
         { instruction: "Add garlic and ginger, and cook for another minute." },
         { instruction: "Add chicken pieces and brown on all sides." },
         { instruction: "Stir in curry powder and cook for a minute." },
         { instruction: "Add tomatoes and cook until they soften." },
-        { instruction: "Pour in coconut milk and simmer until chicken is cooked through." },
-        { instruction: "Season with salt and garnish with chopped cilantro before serving." },
+        {
+          instruction:
+            "Pour in coconut milk and simmer until chicken is cooked through.",
+        },
+        {
+          instruction:
+            "Season with salt and garnish with chopped cilantro before serving.",
+        },
       ],
     },
   ];

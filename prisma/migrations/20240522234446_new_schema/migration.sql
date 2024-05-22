@@ -1,5 +1,3 @@
-CREATE DATABASE mydb;
-
 -- CreateTable
 CREATE TABLE "recipes" (
     "id" SERIAL NOT NULL,

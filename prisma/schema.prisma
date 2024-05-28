@@ -16,16 +16,7 @@ model Recipe {
   cookTimer      String
   ingredients    String[]
   instructions   String[]
-  recipesRelated RecipesRelated[]
 
   @@map("recipes")
 }
 
-model RecipesRelated {
-  id        String @id @default(uuid())
-  recipeId  String
-  recipe    Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
-  name      String
-  urlImage  String
-  cookTimer String
-}

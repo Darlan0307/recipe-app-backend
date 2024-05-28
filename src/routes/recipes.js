@@ -1,9 +1,10 @@
-import { Router } from 'express'
-import { RecipeController } from '../controller/RecipeController.js'
+import { Router } from "express";
+import { RecipeController } from "../controller/RecipeController.js";
 
-const recipecontroller = new RecipeController()
+const recipecontroller = new RecipeController();
 
-export const routesRecipe = Router()
+export const routesRecipe = Router();
 
-routesRecipe.get('/recipes',recipecontroller.getAllRecipes)
+routesRecipe.get("/recipes", recipecontroller.getAllRecipes);
 
+routesRecipe.get("/setdata", recipecontroller.setDataRecipes);

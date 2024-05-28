@@ -8,34 +8,24 @@ datasource db {
 }
 
 model Recipe {
-  id           Int           @id @default(autoincrement())
-  name         String
-  image        String
-  description  String
-  category     String
-  origin       String?
-  cookTimer    String
-  ingredients  Ingredient[]
-  instructions Instruction[]
+  id             String           @id @default(uuid())
+  name           String
+  urlImage       String
+  description    String
+  category       String
+  cookTimer      String
+  ingredients    String[]
+  instructions   String[]
+  recipesRelated RecipesRelated[]
 
   @@map("recipes")
 }
 
-model Ingredient {
-  id                Int    @id @default(autoincrement())
-  recipeId          Int
-  ingredientName    String
-  ingredientPortion String
-  recipe            Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
-
-  @@map("ingredients")
-}
-
-model Instruction {
-  id          Int    @id @default(autoincrement())
-  recipeId    Int
-  instruction String
-  recipe      Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
-
-  @@map("instructions")
+model RecipesRelated {
+  id        String @id @default(uuid())
+  recipeId  String
+  recipe    Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+  name      String
+  urlImage  String
+  cookTimer String
 }

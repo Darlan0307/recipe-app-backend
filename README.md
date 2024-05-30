@@ -8,15 +8,16 @@ We are developing here a amazing database that can suport our recipes without ov
 
 ## Installation
 Run a Container Docker at Docker Desktop and start it: 
-    docker-compose up --build
-    docker-compose logs -f <service_name>
-    docker-compose up -d
-    docker-compose up
-
-    npx prisma migrate dev   
     
-    docker-compose up -d 
+    - docker-compose up --build
+    - docker-compose logs -f <service_name>
+    - docker-compose up -d
+    - docker-compose up
+
+    - npx prisma migrate dev   
+    
+    - docker-compose up -d 
 
 Open a new terminal and type:
 
-    npx prisma studio
+    - npx prisma studio

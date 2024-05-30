@@ -6,8 +6,17 @@ async function main() {
 
   for (const recipe of recipes) {
     const createdRecipe = await prisma.recipe.create({
-      data: {},
+      data: {
+        name: recipe.name,
+        urlImage: recipe.urlImage,
+        category: recipe.category,
+        cookTimer: recipe.timer,
+        ingredients: recipe.ingredients,
+        instructions: recipe.preparations,
+        portion: recipe.portion,
+      },
     });
+
     console.log(`Created recipe with id: ${createdRecipe.id}`);
   }
 }

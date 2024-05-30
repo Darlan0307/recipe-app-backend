@@ -11,9 +11,9 @@ model Recipe {
   id             String           @id @default(uuid())
   name           String
   urlImage       String
-  description    String
   category       String
   cookTimer      String
+  portion        String
   ingredients    String[]
   instructions   String[]
 

@@ -1,23 +1,75 @@
 import { prisma } from "../prisma/prisma.js";
 
 export class RecipeController {
-  async getAllRecipes(_, res) {
+  // Buscar Receitas pelos filtros, fazendo a páginação
+  async getRecipeByFilters(req, res) {
     try {
-      const recipes = await prisma.recipe.findMany();
+      const name = req.query.name || "";
+      const category = req.query.category || "";
+      const page = parseInt(req.query.page) || 1;
+      const limit = parseInt(req.query.limit) || 10;
 
-      res.status(200).json(recipes);
+      if (page < 1 || limit < 1) {
+        return res
+          .status(400)
+          .json({ error: "Page and limit must be positive integers" });
+      }
+
+      const filters = {
+        name: {
+          contains: name,
+          mode: "insensitive",
+        },
+        category: {
+          contains: category,
+          mode: "insensitive",
+        },
+      };
+
+      const qtdRecipes = await prisma.recipe.count({ where: filters });
+
+      const recipeFiltred = await prisma.recipe.findMany({
+        skip: (page - 1) * limit,
+        take: limit,
+        where: filters,
+      });
+
+      const lastPageNumber = Math.ceil(qtdRecipes / limit);
+
+      res.status(200).json({
+        data: recipeFiltred,
+        currentPage: page,
+        limit: limit,
+        totalResults: qtdRecipes,
+        totalPages: lastPageNumber,
+        hasNextPage: page < lastPageNumber,
+        hasPreviousPage: page > 1,
+      });
     } catch (error) {
       res.status(401).json(error);
     }
   }
 
-  async setDataRecipes(req, res) {
+  // Buscar Receita por Id
+  async getRecipeById(req, res) {
     try {
-      const { start, end } = req.query;
+      const { id } = req.params;
 
-      console.log(start + end);
+      const recipe = await prisma.recipe.findUnique({
+        where: { id },
+      });
 
-      res.status(200).json({});
+      res.status(200).json({ data: recipe });
+    } catch (error) {
+      res.status(401).json(error);
+    }
+  }
+
+  async getAllRecipes(_, res) {
+    try {
+      const recipes = await prisma.recipe.findMany();
+
+      res.status(200).json(recipes);
     } catch (error) {
       res.status(401).json(error);
     }

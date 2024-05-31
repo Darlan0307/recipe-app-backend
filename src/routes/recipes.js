@@ -7,4 +7,6 @@ export const routesRecipe = Router();
 
 routesRecipe.get("/recipes", recipecontroller.getAllRecipes);
 
-routesRecipe.get("/setdata", recipecontroller.setDataRecipes);
+routesRecipe.get("/getRecipeByFilters", recipecontroller.getRecipeByFilters);
+
+routesRecipe.get("/getRecipeById/:id", recipecontroller.getRecipeById);

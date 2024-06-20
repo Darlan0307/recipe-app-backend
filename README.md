@@ -14,7 +14,7 @@ Run a Container Docker at Docker Desktop and start it:
     - docker-compose up -d
     - docker-compose up
 
-    - npx prisma migrate dev   
+    - npx prisma migrate dev --schema=./backend/prisma/schema.prisma   
     
     - docker-compose up -d 
 
